@@ -1,0 +1,5 @@
+.reveal section img {
+    border: 0px !important;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+    background: #ffffff;
+}

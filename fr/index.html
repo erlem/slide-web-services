@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Les services web</title>
+
+	<meta name="description" content="Les services web - Échange de données entre clients et serveurs">
+	<meta name="author" content="Jean-François Erlem">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+	var link = document.createElement( 'link' );
+	link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+	document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section>
+				<h1>Les services web</h1>
+				<h3>Échange de données entre clients et serveurs</h3>
+				<p>
+					<small>Créé par <a href="http://blog.erlem.fr">Jean-François Erlem</a> / <a href="https://twitter.com/jf_erlem">@JF_Erlem</a></small>
+				</p>
+				<aside class="notes">
+					Le but de cette formation est de vous aider à comprendre le monde des services web en expliquant les différentes normes des services existants.
+				</aside>
+			</section>
+
+			<!-- Découvrir les services web en programmation -->
+			<section>
+				<section>
+					<h2>Découvrir les services web en programmation</h2>
+				</section>
+				<section>
+					<h3>Explorer la formation sur les services web</h3>
+					<ul>
+						<li>Services web</li>
+						<li>Histoire et utilisation</li>
+						<li>Transport par protocole (HTTP, SMTP)</li>
+						<li>Formats de message (SOAP, ATOM, JSON, XML)</li>
+						<li>Normes de services web (SOAP, REST, OpenData)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Débuter avec les services web</h3>
+					<ul>
+						<li>Les services orientent l'architecture d'un logiciel</li>
+						<li>Qu'est-ce que le SOAP ?</li>
+						<li>À quoi servent les flux Atome, les RSS ou le XML ?</li>
+						<li>Pourquoi différents formats, et comment choisir ?</li>
+						<li>Quelle différence entre GET, POST, PUT, DELETE ?</li>
+					</ul>
+				</section>
+			</section>
+
+			<!-- Comprendre les services web -->
+			<section>
+				<section>
+					<h2>Comprendre les services web</h2>
+				</section>
+				<section>
+					<h3>Définir le service web (1/2)</h3>
+					<ul>
+						<li>Premier site Internet aux États-Unis (Stanford, Centre de l'accélérateur de particules, Palo Alto, Californie).</li>
+						<li>Première version du site date de 1996 : hypertext.</li>
+						<li>Nouvelle version : DIV, du CSS, JavaScript.</li>
+						<li>Web 2.0 : un style ou la page reste dans le navigateur et les nouvelles informations sont récupérées à l'arrière-plan.</li>
+						<li>XML : le format XML permet de récupérer des données d'un serveur sans rafraîchir complètement le site.</li>
+						<li>Un service web est un cadre pour une conversation entre deux ordinateurs.</li>
+						<li>Les WS ont des exigences documentées par des API.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Définir le service web (2/2)</h3>
+					<ul>
+						<li>Les communications entre les services web modernes manipulées par le HTTP.</li>
+						<li>Si vous êtes développeur, vous devez connaître l'API du service.</li>
+						<li>Quel est le format d'un message ? SOAP, XML, JSON.</li>
+						<li>Verbes HTTP : GET, POST, DELETE, UPDATE.</li>
+						<li>Le service web est-il protégé ?</li>
+						<li>Pas besoin de connaître la technologie utilisée par le WS.</li>
+						<li>Les WS sont la tête pensante de l'informatique moderne.</li>
+						<li>Ils communiquent grâce à un vocabulaire partagé.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Comprendre l'historique des WS (1/2)</h3>
+					<ul>
+						<li>Service web prononcé pour la 1ère fois par Bill Gates en 2000 lors d'une conéfrence logicielle.</li>
+						<li>Le concept de communication entre deux ordinateurs n'est pas nouveau : EDI = Échange de Données Informatisées (1996).</li>
+						<li>1ère version d'EDI en 1960.</li>
+						<li>1970 : communication sur les lignes téléphoniques.</li>
+						<li>1970 : FTP (: P)rotocole de Transfert de Données).</li>
+						<li>1990 : RPC - Appel de Procédure Lointaine. Basée sur DCE (Environnement Infromatique Distribué)</li>
+						<li>Révolution en 1998 : introduction de XML tiré de SGML.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Comprendre l'historique des WS (2/2)</h3>
+					<ul>
+						<li>XML : simplicité, la Lisibilité et généralité.</li>
+						<li>XML-RPC, ATOM et RSS.</li>
+						<li>SOAP est une langue basée sur le XML et sur le XML-RPC.</li>
+						<li>SOAP est devenu le fondement d'un ensemble entier de technologies de service web appelé WS-*.</li>
+						<li>Le plus avancé des formats est JSON (plus simple et plus puissant) inventé dans les années 2000.</li>
+						<li>JSON : lisible, plus léger que le XML.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Connaître les protocoles de transport</h3>
+					<ul>
+						<li>Pré-web : Telex, Telnet, Modems bi-directionnels.</li>
+						<li>Non-HTTP : FTP, SMTP, POP.</li>
+						<li>HTTP (HyperText Transfer Protocol).</li>
+						<li>Méthodes HTTP : GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH.</li>
+						<li>Les plus polaires : GET (récupère), POST (ajoute), PUT (mise à jour), DELETE (suppression).</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Connaître les formats de données</h3>
+					<ul>
+						<li>Autres format de réponse : AMF (Action Message Format).</li>
+						<li>Texte : HTML, CSV.</li>
+						<li>Formats binaires : feuilles de calcul, base de données compressées, images.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Les standards SOAP, REST, OData</h3>
+					<ul>
+						<li>SOAP : initié par Microsoft puis repris par le W3C en 2001, c'est un format, les outils sont la clé.</li>
+						<li>RESTful (Representational State Transfer) : initié par Roy Fielding, basé sur du HTTP simple, c'est plus léger que SOAP et basé sur des verbes GET, POST, PUT, DELETE. Plusieurs formats d'échange sont acceptés (XML, JSON...)</li>
+						<li>Les contraintes du RESTful sont que chaque requête est indépendante et l'on peut utiliser un cache pour réduire le coût en bande passante.</li>
+						<li>OData - RESTful Standard : basé sur REST, syntaxe fixe, XML ou JSON, librairies OData client et serveur.</li>
+						<li>Autres standards : XML-RPC, UDDI, WSDL, WSDM, WS-*.</li>
+					</ul>
+				</section>
+			</section>
+
+			<!-- Découvrir les services basés sur SOAP -->
+			<section>
+				<section>
+					<h2>Découvrir les services basés sur SOAP</h2>
+				</section>
+				<section>
+					<h3>Définir SOAP (1/2)</h3>
+					<ul>
+						<li>SOAP = Simple Object Access Protocol</li>
+						<li>Langage basé sur XML.</li>
+						<li>Développé par Microsoft fin des années 90.</li>
+						<li>Maintenu par le WorlWide Web Consortiul (W3C).</li>
+						<li>SOAP est :</li>
+						<ul>
+							<li><strong>Extensible :</strong> adaptable à tout processus business</li>
+							<li><strong>Neutre :</strong> souvent utilisé avec HTTP(s), mais compatible avec les protocoles asynchrones (FTP, SMTP)</li>
+							<li><strong>Indépendant :</strong> inter-opérable, système, langage, plateforme</li>
+						</ul>
+					</ul>
+				</section>
+				<section>
+					<h3>Définir SOAP (2/2)</h3>
+					<ul>
+						<li>Les versions de SOAP :</li>
+						<ul>
+							<li><strong>SOAP 1.1 :</strong> sortie en 2000, en version finale</li>
+							<li><strong>SOAP 1.2 :</strong>  sortie en 2007, en version finale. Meilleure gestion et modèles extensibles.
+								Meilleure intégration avec le monde du Web. Plus polyvalent et rapide</li>
+								<li><strong>Indépendant :</strong> inter-opérable, système, langage, plateforme</li>
+							</ul>
+							<li>Le rôle des librairies SOAP :</li>
+							<img src="img/Decouvrir_les_services_bases_sur_SOAP_Le_role_des_librairie_SOAP.jpg" alt="Le rôle des librairies SOAP">
+						</ul>
+					</section>
+					<section>
+						<h3>Définir une requête et une réponse (1/6)</h3>
+						<ul>
+							<li>Une enveloppe SOAP :</li>
+							<img src="img/Definir_une_requete_et_une_reponse_Une_enveloppe_SOAP.jpg" alt="Une enveloppe SOAP">
+							<li>Espaces de noms en XML (Namespace) :</li>
+							<img src="img/Definir_une_requete_et_une_reponse_Namespace.jpg" alt="Namespace">
+							<li>Autres exemples SOAP :</li>
+							<ul>
+								<li>http://www.w3.org/2003/05/soap-encoding</li>
+								<li>http://www.w3.org/2004/08/representation</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Définir une requête et une réponse (2/6)</h3>
+						<ul>
+							<li>Les Namespaces et les Préfixes :</li>
+							<img src="img/Definir_une_requete_et_une_reponse_Les_namespaces_et_les_prefixes.jpg" alt="Les Namespaces et les Préfixes">
+						</ul>
+					</section>
+					<section>
+						<h3>Définir une requête et une réponse (3/6)</h3>
+						<ul>
+							<li>Le header SOAP :</li>
+							<img src="img/Definir_une_requete_et_une_reponse_Le_header_SOAP.jpg" alt="Le header SOAP">
+						</ul>
+					</section>
+					<section>
+						<h3>Définir une requête et une réponse (4/6)</h3>
+						<ul>
+							<li>Le body SOAP :</li>
+							<img src="img/Definir_une_requete_et_une_reponse_Le_body_SOAP.jpg" alt="Le body SOAP">
+						</ul>
+					</section>
+					<section>
+						<h3>Définir une requête et une réponse (5/6)</h3>
+						<ul>
+							<li>Une réponse SOAP complète :</li>
+							<img src="img/Definir_une_requete_et_une_reponse_Une_reponse_SOAP_complete.jpg" alt="Une réponse SOAP complète">
+						</ul>
+					</section>
+					<section>
+						<h3>Définir une requête et une réponse (6/6)</h3>
+						<ul>
+							<li>Les erreurs SOAP :</li>
+							<img src="img/Definir_une_requete_et_une_reponse_Les_erreurs_SOAP.jpg" alt="Les erreurs SOAP">
+						</ul>
+					</section>
+					<section>
+						<h3>Comprendre les types de données</h3>
+						<ul>
+							<li>Les types de données en XML : string, numbers, boolean, date</li>
+							<li>Décrire une donnée avec WSDL (Web Services Description Lanaguage) :</li>
+							<img src="img/Comprendre_les_types_de_donnEes_WSDL.jpg" alt="Décrire une donnée avec WSDL (Web Services Description Lanaguage)">
+						</ul>
+					</section>
+					<section>
+						<h3>Utiliser un service dans son code</h3>
+						<ul>
+							<li>JAX-WS (Java) :</li>
+							<ul>
+								<li>Client et serveur</li>
+								<li>Gratuitement téléchargeable chez Oracle</li>
+								<li>Inclus dans Eclipse pour JavaEE</li>
+								<li>JAX-WS 2.0 remplace JAX-RPC dans JavaEE 5</li>
+							</ul>
+							<p></p>
+							<li>Apache CSF (Java) :</li>
+							<ul>
+								<li>Support de SAOP et RESTful</li>
+								<li>Fonctionne au travers de HTTP, Java Message Service (JMS), Java Business Integration (JBI)</li>
+								<li>Inclus dans Eclipse pour JavaEE</li>
+								<li>JAX-WS 2.0 remplace JAX-RPC dans JavaEE 5</li>
+							</ul>
+						</ul>
+					</section>
+				</section>
+
+				<!-- Utiliser un service RESTful -->
+				<section>
+					<section>
+						<h2>Utiliser un service RESTful</h2>
+					</section>
+					<section>
+						<h3>Définir REST (1/3)</h3>
+						<ul>
+							<li>REST : REpresentational State Transfer</li>
+							<li>Le style derrière les services RESTful</li>
+							<li>Créé en 2000 par Roy Fielding</li>
+							<li>Les choses à savoir : </li>
+							<ul>
+								<li>Scalabilité</li>
+								<li>Interfaces généralistes</li>
+								<li>Déploiement indépendant des composants</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Définir REST (2/3)</h3>
+						<ul>
+							<li>Un service RESTful s'appelle en générale par une route précise appelée URI (Uniform Resource Identifiers) :</li>
+							<ul>
+								<li>Pour chaque service, une URI.</li>
+								<li>On peut lui passer des paramètres, en xml, json ou autre.</li>
+								<li>Clairement plus précise que SOAP.</li>
+							</ul>
+							<p></p>
+							<li>Les réponses en XML :</li>
+							<ul>
+								<li>ATOM</li>
+								<li>RSS</li>
+								<li>Langage XML exotique comme ke Plain Old XML (POX)</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Définir REST (3/3)</h3>
+						<ul>
+							<li>Les réponses en JSON :</li>
+							<ul>
+								<li>Les metadata sont oubliées, on met tout dans la réponse.</li>
+								<li>Plus léger, plus rapide, plus tout !</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Utiliser REST et HTTP (1/2)</h3>
+						<ul>
+							<li>Requêtes et réponses web :</li>
+							<img src="img/Definir_REST_Requetes_et_reponses_web.jpg" alt="Requêtes et réponses web">
+							<li>En REST :</li>
+							<img src="img/Definir_REST_REST.jpg" alt="En REST">
+						</ul>
+					</section>
+					<section>
+						<h3>Utiliser REST et HTTP (2/2)</h3>
+						<ul>
+							<li>Méthodes HTTP ? Verbes ! :</li>
+							<ul>
+								<li><strong>GET :</strong> récupérer</li>
+								<li><strong>POST :</strong> créer</li>
+								<li><strong>PUT ou PATCH :</strong> mettre à jour tout ou une partie</li>
+								<li><strong>DELETE :</strong> supprimer</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Envoyer des requêtes avec REST (1/3)</h3>
+						<ul>
+							<li>Syntaxe d'une requête HTTP :</li>
+							<ul>
+								<li>Les services disposent tous d'une API.</li>
+								<li>On utilise les verbes GET / POST / PUT / DELETE</li>
+								<li>Souvent on trouve des paramètres à paseer "?a=x&b=x".</li>
+								<li>On peut aussi référencer les paramètres dans le body.</li>
+								<li>Il faut toujours lire la documentation du service.</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Envoyer des requêtes avec REST (2/3)</h3>
+						<ul>
+							<li>Requêtes en GET :</li>
+							<img src="img/Envoyer_des_requetes_avec_REST_GET.jpg" alt="GET">
+							<li>Requêtes en POST & XML :</li>
+							<img src="img/Envoyer_des_requetes_avec_REST_POST.jpg" alt="GET">
+						</ul>
+					</section>
+					<section>
+						<h3>Envoyer des requêtes avec REST (3/3)</h3>
+						<ul>
+							<li>Tout envoi est différent selon le langage et la plateforme !</li>
+							<ul>
+								<li>La plupart des langages ont un système interne.</li>
+								<li>La plupart des plateformes proposent des systèmes agnostiques qui cache le fonctionnement.</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Utiliser la réponse et les formats (1/5)</h3>
+						<ul>
+							<li>La plupart des interfaces RESTful travaillent en XML ou en JSON.</li>
+							<p></p>
+							<li>XML RSS</li>
+							<ul>
+								<li>RSS 1.0 : RDF Site Summary.</li>
+								<li>RSS 2.0 : Really Simple Syndication.</li>
+								<li>Développé pour partager de l'information (flux).</li>
+								<li>Peut-être utilisé pour d'autres structures de données.</li>
+								<li>Le standard pour les blogs (WordPress & consorts).</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Utiliser la réponse et les formats (2/5)</h3>
+						<ul>
+							<li>La plupart des interfaces RESTful travaillent en XML ou en JSON.</li>
+							<p></p>
+							<li>XML ATOM</li>
+							<ul>
+								<li>Basé sur HTTP pour gérer des ressources web.</li>
+								<li>Syndication en ATOM.</li>
+								<ul>
+									<li>Langage XML pour les flux et autres données.</li>
+									<li>Quelques avantages par rapport à XML.</li>
+								</ul>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Utiliser la réponse et les formats (3/5)</h3>
+						<ul>
+							<li>XML POX (Plain Old XML)</li>
+							<ul>
+								<li>Schéma XML personnalisé.</li>
+								<li>Pour décrire essentiellement des structures de données.</li>
+								<li>Quelques standards et surtout du custom.</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Utiliser la réponse et les formats (4/5)</h3>
+						<ul>
+							<li>JSON (Javacript Object Notation)</li>
+							<ul>
+								<li>Démarré en 2001.</li>
+								<li>Devenu populaire grâce à Douglas Crawford.</li>
+								<li>Notation Javascript pour encoder les données.</li>
+								<li>Types en JSON : </li>
+								<img src="img/JSON_types.jpg" alt="Types en JSON">
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Utiliser la réponse et les formats (5/5)</h3>
+						<ul>
+							<li>JSON (Javacript Object Notation)</li>
+							<ul>
+								<li>Exemple complet :</li>
+								<img src="img/JSON_exemple.jpg" alt="Exemple complet">
+							</ul>
+						</ul>
+					</section>
+				</section>
+
+				<!-- Utiliser des services OData -->
+				<section>
+					<section>
+						<h2>Utiliser des services OData</h2>
+					</section>
+					<section>
+						<h3>Définir OData</h3>
+						<ul>
+							<li>OData : Open Data Protocol</li>
+							<li>Spécification RESTful pour les services web.</li>
+							<li>Généralement en GET et basé sur l'URI.</li>
+							<li>Les autre verbes (POST, PUT, DELETE) sont acceptés.</li>
+							<li>Réponses en ATOM (XML) ou JSON.</li>
+							<li>Historique : </li>
+							<ul>
+								<li>Créé et poussé par Microsoft.</li>
+								<li>Support natif avec Azure, Sharepoint, et d'autres produits MS.</li>
+								<li>Maintenant en open source.</li>
+								<li>Implémentations disponibles pour de nombreuses plateformes.</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Créer des requêtes OData (1/2)</h3>
+						<ul>
+							<li>Comme une URI classique : </li>
+							<ul>
+								<li>Protocole</li>
+								<li>Domaine</li>
+								<li>Chemin vers la ressource</li>
+								<li>Des paramètres de requête</li>
+							</ul>
+							<li>Structure d'une requête OData : </li>
+							<img src="img/OData_Requetes.jpg" alt="Structure d'une requête OData">
+						</ul>
+					</section>
+					<section>
+						<h3>Créer des requêtes OData (2/2)</h3>
+						<ul>
+							<li>Options particulières :</li>
+							<ul>
+								<li>$filter : ajouter un filtre</li>
+								<li>$orderby : jouer avec l'ordre</li>
+								<li>$top : limiter le nombre d'objets</li>
+							</ul>
+							<li>Structure d'une requête OData : </li>
+							<img src="img/OData_Requetes.jpg" alt="Structure d'une requête OData">
+						</ul>
+					</section>
+				</section>
+
+				<!-- Gérer la sécurité avec les services web -->
+				<section>
+					<section>
+						<h2>Gérer la sécurité avec les services web</h2>
+					</section>
+					<section>
+						<h3>Encrypter les données</h3>
+						<ul>
+							<li>L'encrypatage est une approche cryptographique pour protéger le transit de données sur le web.</li>
+							<li>Les requêtes HTTP sont toujours du texte brut.</li>
+							<li>Le serveur et le client HTTP peuvent encoder/décoder.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Encrypter les données</h3>
+						<ul>
+							<li>SSL (Secure Sockets Layer)</li>
+							<ul>
+								<li>Protocole crypté pour le web, disponible sur HTTP.</li>
+								<li>Développé à la base par Netscape.</li>
+								<li>Disponible sur tous les clients et serveurs HTTP.</li>
+							</ul>
+							<p></p>
+							<li>TLS (Transport Layer Security)</li>
+							<ul>
+								<li>Basé sur SSL, on fait souvent référence à un SSL/TLS.</li>
+								<li>Supporté en natif par les serveurs et clients HTTP.</li>
+							</ul>
+							<p></p>
+							<li>HTTPS (HTTP Sécurisé)</li>
+							<ul>
+								<li>HTTP avec SSL/TLS.</li>
+								<li>Créer un tunnel bi-directionnel sécurisé entre le client et le serveur.</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Encrypter les données</h3>
+						<ul>
+							<li>Certificats de sécurité</li>
+							<ul>
+								<li>Obligatoire pour disposer d'un HTTPS sur un serveur.</li>
+								<li>Disponible chez les revendeurs agréés.</li>
+								<li>Disponible sur tous les clients et serveurs HTTP.</li>
+							</ul>
+							<p></p>
+							<li>Les principaux organismes</li>
+							<ul>
+								<li>CAcert.org</li>
+								<li>Comodo</li>
+								<li>DigiCert</li>
+								<li>Entrust</li>
+								<li>GlobalSign</li>
+								<li>Symantec</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Appliquer la sécurité basique en HTTP (1/3)</h3>
+						<ul>
+							<li>Basée sur un username et un password.</li>
+							<li>Tout démarre par une boîte de dialogue pour le web.</li>
+							<li>Pour un service web : un paramètre de requête.</li>
+							<li>A la demande :</li>
+							<ul>
+								<li>Chaque requête doit contenir l'identification.</li>
+								<li>Pas de cookies pour cette partie.</li>
+								<li>Le client peut suavegarder les données d'identification.</li>
+							</ul>
+							<li>Dans une URI :</li>
+							<img src="img/HTTP_A_la_demande.jpg" alt="A la demande">
+						</ul>
+					</section>
+					<section>
+						<h3>Appliquer la sécurité basique en HTTP (2/3)</h3>
+						<ul>
+							<li>Dans les headers de requête :</li>
+							<ul>
+								<li>On fait une concaténation username:password (ex : joesmith:letmein)</li>
+								<li>Et on encode tout ça en base64 (ex : am9lc21pdGg6bGV0bWVpbg==)</li>
+							</ul>
+							<li>Et on place un header :</li>
+							<ul>
+								<li>Authorization: Basic am9lc21pdGg6bGV0bWVpbg==</li>
+								<img src="img/HTTP_Header.jpg" alt="Et on place un header">
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Appliquer la sécurité basique en HTTP (3/3)</h3>
+						<ul>
+							<li>Sur le serveur :</li>
+							<ul>
+								<li>On identifie avec une liste d'utilisateurs.</li>
+								<li>Depuis des bases de données, un LDAP ou Active Directory.</li>
+								<li>Pour plus de sécurité, il est préférable d'encoder les mots de passe.</li>
+								<li>On peut comparer les mots de passe, mais difficilement les déchiffrer.</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Se servir des clés API</h3>
+						<ul>
+							<li>Sécurité des WS-* :</li>
+							<ul>
+								<li>Regarder du côté des WS-SX.</li>
+								<li>Sécuriser à l'aide de clé.</li>
+								<li>Beaucoup de systèmes différents existent.</li>
+							</ul>
+							<p></p>
+							<li>OAuth :</li>
+							<ul>
+								<li>Protocole ouvert pour sécurité maximum.</li>
+								<li>Largement utilisé et partout (mobile, web, desktop).</li>
+								<li>Utilisé par Amazon, Google, PayPal,...</li>
+								<li>Toutes les infos : <a href="http://oauth.net">http://oauth.net</a></li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h3>Se servir des clés API</h3>
+						<ul>
+							<li>OpenID :</li>
+							<ul>
+								<li>Protocole ouvert pour gérer les identifications.</li>
+								<li>Permet de garder une identification pour plusieurs sites en même temps.</li>
+								<li>Généralement utilisé pour les sites web mais le mobile aussi.</li>
+								<li>Toutes les infos : <a href="http://openid.net">http://openid.net</a></li>
+							</ul>
+						</ul>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+		</script>
+
+	</body>
+	</html>
